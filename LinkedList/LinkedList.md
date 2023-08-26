@@ -8,3 +8,8 @@ In arrays we store items in contiguous memory location, and hence OS must to fit
 That's why when you define an array you define its size immediately, and then, after you created an array you can not change original array's size.
 
 |Operation Type|Linked List|Array|
+----------------------------------
+|Adding new item|O(1)|O(n)|
+|Deleting an element at the specified index|O(n)|O(1)|
+|Reading an element at the specified index|O(n)|O(1)|
+|Inserting an element at the specified index|O(n)|O(1)|
