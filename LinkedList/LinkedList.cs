@@ -1,4 +1,4 @@
-namespace LinkedList;
+
 namespace LinkedList;
 public class LinkedList<T>
 {
@@ -17,7 +17,19 @@ public class LinkedList<T>
         Length ++;
     }
     public void DeleteNodeAt(int position){
-        
+        if(position < Length){
+            if(position == 0){
+                _head = _head!.Next;
+            }
+            else{
+                Node prevNode = _GetNodeAt(position - 1)!;
+                prevNode.Next = prevNode.Next!.Next;
+            }
+            Length --;
+        }
+        else {
+            throw new ArgumentOutOfRangeException("position");
+        }
     }
     private Node? _GetNodeAt(int position){
         if(position < Length){
@@ -33,7 +45,7 @@ public class LinkedList<T>
             return result;
         }
         else {
-            throw new ArgumentOutOfRangeException("The position is greater than the length of the linked list.");
+            throw new ArgumentOutOfRangeException("position");
         }
     }
     public void Insert(int position, T data){
