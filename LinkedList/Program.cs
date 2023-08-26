@@ -8,7 +8,6 @@ class Program{
         lin.Insert(2, -29);
         lin.Add(99);
         lin.DeleteNodeAt(3);
-        lin.ListItems();
         Console.WriteLine("The length is: " + lin.Length);
     }
 }
