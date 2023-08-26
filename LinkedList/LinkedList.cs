@@ -1,4 +1,5 @@
 namespace LinkedList;
+namespace LinkedList;
 public class LinkedList<T>
 {
     private Node? _head { get; set; }
@@ -15,22 +16,48 @@ public class LinkedList<T>
         }
         Length ++;
     }
+    public void DeleteNodeAt(int position){
+        
+    }
+    private Node? _GetNodeAt(int position){
+        if(position < Length){
+            int tempPos = 0;
+            Node? result = _head;
+            while(tempPos < Length){
+                if(tempPos == position){
+                    break;
+                }
+                result = result!.Next;
+                tempPos ++;
+            }
+            return result;
+        }
+        else {
+            throw new ArgumentOutOfRangeException("The position is greater than the length of the linked list.");
+        }
+    }
     public void Insert(int position, T data){
         if(position <= Length){
             if(position == Length){
                 this.Add(data);
             }
             else{
-                Node temp = _head!;
-                // Hello world!
-                return;
-               // while(position < Length)
+                Node nextNode = _GetNodeAt(position)!;
+                if(position == 0){
+                    _head = new Node(data);
+                    _head.Next = nextNode;
+                }
+                else {
+                    Node prevNode = _GetNodeAt(position - 1)!;
+                    prevNode.Next = new Node(data);
+                    prevNode.Next.Next = nextNode;
+                }
+                Length++;
             }
         }
-        else{
-            throw new ArgumentOutOfRangeException("The position is greater than the Length of the linked list.");
-        }
     }
+
+    // For debugging output, I will delete it after I check everything.
     public void ListItems(){
         Node? temp = _head;
         while(temp != null){
