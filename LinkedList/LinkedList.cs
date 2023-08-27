@@ -108,7 +108,7 @@ public class LinkedList<T>
     ///  Thrown when the provided position is out of range.
     ///</exception>
     public void Insert(int position, T data){
-        if(position <= Length && position >= 0){
+        if(position < Length && position >= 0){
             if(position == Length){
                 this.Add(data);
             }
@@ -125,6 +125,27 @@ public class LinkedList<T>
                 }
                 Length++;
             }
+        }
+        else {
+            throw new ArgumentOutOfRangeException("position");
+        }
+    }
+
+    ///<summary>
+    ///  Get the data that is stored at the specified node in the linked list.
+    ///</summary>
+    ///<param name="position">
+    ///  The position of the node in the linked list.
+    ///</param>
+    ///<returns>
+    ///  The node data.
+    ///</returns>
+    ///<exception cref="ArgumentOutOfRangeException">
+    ///  Thrown when the provided position is out of range.
+    ///</exception>
+    public T? GetNodeDataAt(int position){
+        if(position < Length && position >= 0){
+            return _GetNodeAt(position)!.Data;
         }
         else {
             throw new ArgumentOutOfRangeException("position");
