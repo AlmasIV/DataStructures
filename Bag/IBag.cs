@@ -6,7 +6,7 @@ namespace Bag;
 ///<typeparam name="T">
 ///  The type of items held in the bag.
 ///</typeparam>
-public interface IBag<T>{
+public interface IBag<T> : IEnumerable<T>{
     ///<summary>
     ///  Adds an item to the bag.
     ///</summary>
@@ -26,5 +26,5 @@ public interface IBag<T>{
     ///<summary>
     ///  Gets the number of items in the bag.
     ///</summary>
-    public int Length { get; private set; }
+    public int Length { get; }
 }

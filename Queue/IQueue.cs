@@ -6,7 +6,7 @@ namespace Queue;
 ///<typeparam name="T">
 ///  The type of items held in the key.
 ///</typeparam>
-public interface IQueue<T> {
+public interface IQueue<T> : IEnumerable<T>{
     ///<summary>
     ///  Adds an item to the end of the queue.
     ///</summary>
@@ -34,5 +34,5 @@ public interface IQueue<T> {
     ///<summary>
     ///  Gets the number of items in the queue.
     ///</summary>
-    public int Length { get; private set; }
+    public int Length { get; }
 }

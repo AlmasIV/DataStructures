@@ -6,7 +6,7 @@ namespace Stack;
 ///<typeparam name="T">
 ///  The type of items held in the stack.
 ///</typeparam>
-public interface IStack<T> {
+public interface IStack<T> : IEnumerable<T>{
     ///<summary>
     ///  Adds an item to the stack.
     ///</summary>
@@ -34,5 +34,5 @@ public interface IStack<T> {
     ///<summary>
     ///  Gets the number of items in the stack.
     ///</summary>
-    public int Length { get; private set; }
+    public int Length { get; }
 }
