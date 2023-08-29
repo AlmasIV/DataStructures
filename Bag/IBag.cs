@@ -1,7 +1,7 @@
 namespace Bag;
 
 ///<summary>
-///  Represent a generic bag interface.
+///  Represents a generic bag interface.
 ///<summary>
 ///<typeparam name="T">
 ///  The type of items held in the bag.
