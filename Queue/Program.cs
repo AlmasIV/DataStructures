@@ -1,4 +1,4 @@
-﻿namespace Queue;
+﻿namespace CustomQueue;
 
 class Program
 {

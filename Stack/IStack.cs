@@ -1,4 +1,4 @@
-namespace Stack;
+namespace CustomStack;
 
 ///<summary>
 ///  Represents a generic stack interface.
@@ -6,7 +6,7 @@ namespace Stack;
 ///<typeparam name="T">
 ///  The type of items held in the stack.
 ///</typeparam>
-public interface IStack<T> : IEnumerable<T>{
+public interface IStack<T>{
     ///<summary>
     ///  Adds an item to the stack.
     ///</summary>
@@ -21,6 +21,9 @@ public interface IStack<T> : IEnumerable<T>{
     ///<returns>
     ///  The popped item.
     ///</returns>
+    ///<exception cref="IndexOutOfRangeException">
+    ///  Thrown when the stack is empty.
+    ///</exception>
     public T Pop();
 
     ///<summary>
@@ -29,7 +32,7 @@ public interface IStack<T> : IEnumerable<T>{
     ///<returns>
     ///  True if the stack is empty, otherwise false.
     ///</returns>
-    public bool IsEmpty();
+    public bool IsEmpty { get; }
 
     ///<summary>
     ///  Gets the number of items in the stack.
