@@ -2,7 +2,7 @@ using System.Collections;
 
 namespace CustomStack;
 
-public class Stack<T> : IStack<T>
+public class Stack<T> : IStack<T>, IEnumerable<T>
 {
     private List<T> stack = new List<T>();
     private int length { get; set; } = 0;
@@ -34,26 +34,40 @@ public class Stack<T> : IStack<T>
         stack.Add(item);
         length ++;
     }
+     public IEnumerator<T> GetEnumerator()
+    {
+        return new StackIterator(stack);
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
 
     private class StackIterator : IEnumerator<T>
     {
-        public T Current => throw new NotImplementedException();
+        private List<T> _stack;
+        private int currIndex;
+        public T Current => _stack[currIndex];
 
-        object IEnumerator.Current => throw new NotImplementedException();
+        object IEnumerator.Current => Current!;
+        public StackIterator(List<T> items){
+            _stack = items;
+            currIndex = items.Count;
+        }
 
         public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+        {}
 
         public bool MoveNext()
         {
-            throw new NotImplementedException();
+            currIndex --;
+            return currIndex >= 0;
         }
 
         public void Reset()
         {
-            throw new NotImplementedException();
+            currIndex = _stack.Count;
         }
     }
 }

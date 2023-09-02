@@ -11,5 +11,9 @@ class Program
         foreach(var v in intStack){
             Console.WriteLine(v);
         }
+        intStack.Pop();
+        foreach(var v in intStack){
+            Console.WriteLine(v);
+        }
     }
 }
