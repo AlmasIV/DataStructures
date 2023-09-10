@@ -137,7 +137,7 @@ public class DoublyLinkedList<T> {
     ///<exception cref="ArgumentOutOfRangeException">
     ///  Thrown when the provided index is out of range.
     ///</exception>
-    public T? GetReverseData(int index){
+    public T? GetDataReversed(int index){
         if(index >= 0 && index < Length){
             return _GetNodeAtReversed(index).Data;
         }
