@@ -29,7 +29,7 @@ public class DoublyLinkedList<T> {
     ///<param name="data">
     ///  The data of the node.
     ///</param>
-    public void Add(T data){
+    public void Add(T? data){
         if(_head == null){
             _head = new Node(data);
             _tail = _head;
@@ -54,7 +54,7 @@ public class DoublyLinkedList<T> {
     ///<exception cref="ArgumentOutOfRangeException">
     ///  Thrown when the provided index is out of range.
     ///</exception>
-    public void Insert(int index, T data){
+    public void Insert(int index, T? data){
         if(index >= 0 && index <= Length){
             if(index == Length){
                 this.Add(data);
@@ -107,10 +107,29 @@ public class DoublyLinkedList<T> {
     }
 
     ///<summary>
+    ///  Gets the node's data at the specified position.
+    ///</summary>
+    ///<param name="index">
+    ///  The index at which to retrieve the data.
+    ///</param>
+    ///<returns>
+    ///  The node data.
+    ///</returns>
+    ///<exception cref="ArgumentOutOfRangeException">
+    ///  Thrown when the provided index is out of range.
+    ///</exception>
+    public T? GetData(int index){
+        if(index >= 0 && index < Length){
+            return _GetNodeAt(index).Data;
+        }
+        throw new ArgumentOutOfRangeException("index");
+    }
+
+    ///<summary>
     ///  Gets a node at the specified index, and returns it.
     ///</summary>
     ///<param name="index">
-    ///  The index at which to retrieve a node.
+    ///  The index at which to retrieve a node's data.
     ///</param>
     ///<exception cref="ArgumentOutOfRangeException">
     ///  Thrown when the provided index is out of range.
@@ -128,20 +147,6 @@ public class DoublyLinkedList<T> {
             }
         }
         throw new ArgumentOutOfRangeException("index");
-    }
-    public void ListAll(){
-        Node? tempNode = _head;
-        while(tempNode != null){
-            Console.WriteLine(tempNode.Data);
-            tempNode = tempNode.Next;
-        }
-    }
-    public void ReverseList(){
-        Node? tempNode = _tail;
-        while(tempNode != null){
-            Console.WriteLine(tempNode.Data);
-            tempNode = tempNode.Previous;
-        }
     }
 
     ///<summary>
