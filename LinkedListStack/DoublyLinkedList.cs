@@ -117,11 +117,32 @@ public class DoublyLinkedList<T> {
     ///</exception>
     public T? Pop(){
         if(Length > 0){
-            Node? result = _GetNodeAtReversed(Length - 1);
+            Node removed = _tail!;
             _tail = _tail!.Previous;
             Length --;
-            return result.Data;
+            return removed.Data;
         }
+        else{
+            throw new InvalidOperationException("The doubly-linked list is empty.");
+        }
+    }
+
+    ///<summary>
+    ///  Removes the first element, and returns it.
+    ///</summary>
+    ///<returns>
+    ///  The removed node's data.
+    ///</returns>
+    ///<exception cref="InvalidOperationException">
+    ///  Thrown when the doubly-linked list is empty.
+    ///</exception>
+    public T? Shift(){
+        if(Length > 0){
+            Node removed = _head!;
+            _head = _head!.Next;
+            Length --;
+            return removed.Data;
+        }  
         else{
             throw new InvalidOperationException("The doubly-linked list is empty.");
         }

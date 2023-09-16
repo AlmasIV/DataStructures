@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace DoublyLinkedList;
 
 ///<summary>
@@ -232,6 +234,22 @@ public class DoublyLinkedList<T> {
             }
         }
         throw new ArgumentOutOfRangeException("index");
+    }
+
+    public IEnumerator<T> Enumerate(){
+        Node current = _head!;
+        while(current != null){
+            yield return current.Data;
+            current = current.Next;
+        }
+    }
+
+    public IEnumerator<T> EnumerateReversed(){
+        Node current = _tail!;
+        while(current != null){
+            yield return current.Data;
+            current = current.Previous;
+        }
     }
 
     ///<summary>
