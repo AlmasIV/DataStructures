@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace DoublyLinkedList;
 
 ///<summary>
@@ -170,25 +168,6 @@ public class DoublyLinkedList<T> {
     }
 
     ///<summary>
-    ///  Gets the node's data at the specified position. The position starts from the end.
-    ///</summary>
-    ///<param name="index">
-    ///  The index at which to retrieve the data.
-    ///</param>
-    ///<returns>
-    ///  The node data.
-    ///</returns>
-    ///<exception cref="ArgumentOutOfRangeException">
-    ///  Thrown when the provided index is out of range.
-    ///</exception>
-    public T? GetDataReversed(int index){
-        if(index >= 0 && index < Length){
-            return _GetNodeAtReversed(index).Data;
-        }
-        throw new ArgumentOutOfRangeException("index");
-    }
-
-    ///<summary>
     ///  Gets a node at the specified index, and returns it.
     ///</summary>
     ///<param name="index">
@@ -213,29 +192,8 @@ public class DoublyLinkedList<T> {
     }
 
     ///<summary>
-    ///  Gets a node at the specified index, and returns it. Starts from the end.
+    ///  Returns an iterator that starts from the head node.
     ///</summary>
-    ///<param name="index">
-    ///  The index at which to retrieve a node's data.
-    ///</param>
-    ///<exception cref="ArgumentOutOfRangeException">
-    ///  Thrown when the provided index is out of range.
-    ///</exception>
-    private Node _GetNodeAtReversed(int index){
-        if(index >= 0 && index < Length){
-            int counter = Length - 1;
-            Node tempNode = _tail;
-            while(tempNode != null){
-                if(counter == index){
-                    return tempNode;
-                }
-                tempNode = tempNode.Previous;
-                counter --;
-            }
-        }
-        throw new ArgumentOutOfRangeException("index");
-    }
-
     public IEnumerator<T> Enumerate(){
         Node current = _head!;
         while(current != null){
@@ -244,6 +202,9 @@ public class DoublyLinkedList<T> {
         }
     }
 
+    ///<summary>
+    ///  Returns an iterator that starts from the tail node. Enumerates from right to left.
+    ///</summary>
     public IEnumerator<T> EnumerateReversed(){
         Node current = _tail!;
         while(current != null){

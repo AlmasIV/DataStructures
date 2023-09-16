@@ -21,9 +21,7 @@ public class Stack<T> : IStack<T>, IEnumerable<T>
 
     public IEnumerator<T> GetEnumerator()
     {
-        for(int i = storage.Length - 1; i >= 0; i --){
-            yield return storage.GetDataReversed(i)!;
-        }
+        return storage.EnumerateReversed();
     }
 
     public T? Pop()
