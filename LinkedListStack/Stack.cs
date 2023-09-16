@@ -29,8 +29,7 @@ public class Stack<T> : IStack<T>, IEnumerable<T>
     public T? Pop()
     {
         if(!IsEmpty){
-            T? poppedData = storage.GetData(storage.Length - 1);
-            storage.RemoveAt(storage.Length - 1);
+            T? poppedData = storage.Pop();
             return poppedData;
         }
         throw new NullReferenceException("The Stack is empty.");

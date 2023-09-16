@@ -107,6 +107,27 @@ public class DoublyLinkedList<T> {
     }
 
     ///<summary>
+    ///  Removes the last element from the doubly-linked list, and returns it.
+    ///</summary>
+    ///<returns>
+    ///  Removed node's data.
+    ///</reutrns>
+    ///<exception cref="InvalidOperationException">
+    ///  Thrown when the doubly-linked list is empty.
+    ///</exception>
+    public T? Pop(){
+        if(Length > 0){
+            Node? result = _GetNodeAtReversed(Length - 1);
+            _tail = _tail!.Previous;
+            Length --;
+            return result.Data;
+        }
+        else{
+            throw new InvalidOperationException("The doubly-linked list is empty.");
+        }
+    }
+
+    ///<summary>
     ///  Gets the node's data at the specified position.
     ///</summary>
     ///<param name="index">
