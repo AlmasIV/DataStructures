@@ -8,6 +8,7 @@ class Program
         my.Push(121);
         my.Push(202);
         my.Enqueue(300);
+        my.Pop();
         foreach(var v in my){
             Console.WriteLine(v);
         }

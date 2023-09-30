@@ -4,7 +4,7 @@ namespace Steque;
 ///  Represent the generic steque interface.
 ///</summary>
 ///<typeparam name="T">
-///  The type of the items held in the steque.
+///  The type of items held in the steque.
 ///</typeparam>
 public interface ISteque<T>{
     ///<summary>
