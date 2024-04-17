@@ -1,4 +1,4 @@
-namespace Introduction.Tasks;
+namespace BinaryTrees.Tasks;
 
 /// <summary>
 ///     Enables flattenning a binary tree. Assumes that a developer implements an iterative approach.

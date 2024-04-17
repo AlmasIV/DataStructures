@@ -1,6 +1,6 @@
-﻿using Introduction.Tasks;
+﻿using BinaryTrees.Tasks;
 
-namespace Introduction;
+namespace BinaryTrees;
 
 class Program
 {

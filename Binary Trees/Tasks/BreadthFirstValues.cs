@@ -1,4 +1,4 @@
-namespace Introduction.Tasks;
+namespace BinaryTrees.Tasks;
 
 /// <summary>
 ///     The class contains the methods that flattens the binary tree using breadth first approach.
