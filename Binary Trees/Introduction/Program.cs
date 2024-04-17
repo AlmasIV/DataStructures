@@ -6,6 +6,21 @@ class Program
 {
     static void Main()
     {
+        Node<char> a = _InitializeBinaryTree();
+
+        Console.WriteLine("*** Depth First Values ***");
+        DepthFirstValues dfv = new DepthFirstValues();
+        Console.WriteLine("Iterative approach:");
+        _OutputValues(dfv.FlattenIterative(a));
+        Console.WriteLine("Recursive approach:");
+        _OutputValues(dfv.FlattenRecursive(a));
+
+        Console.WriteLine("\n*** Breadth First Values ***");
+        BreadthFirstValues bfv = new BreadthFirstValues();
+        Console.WriteLine("Iterative approach:");
+        _OutputValues(bfv.FlattenIterative(a));
+    }
+    private static Node<char> _InitializeBinaryTree(){
         var a = new Node<char>('a');
         var b = new Node<char>('b');
         var c = new Node<char>('c');
@@ -21,13 +36,10 @@ class Program
         c.Right = f;
         f.Right = g;
 
-        Console.WriteLine("Iterative approach: ");
-        foreach(char ch in (new DepthFirstValues()).FlattenIterative(a)){
-            Console.WriteLine(ch);
-        }
-        Console.WriteLine("Recursive approach: ");
-        foreach(char ch in (new DepthFirstValues()).FlattenRecursive(a)){
-            Console.WriteLine(ch);
-        }
+        return a;
+    }
+
+    private static void _OutputValues(List<char> values){
+        Console.WriteLine(string.Join(", ", values));
     }
 }
