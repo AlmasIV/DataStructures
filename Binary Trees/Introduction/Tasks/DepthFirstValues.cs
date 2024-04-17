@@ -1,5 +1,3 @@
-using Introduction;
-
 namespace Introduction.Tasks;
 
 /// <summary>
