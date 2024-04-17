@@ -16,7 +16,5 @@ public interface IFlattenIterative {
     /// <returns>
     ///     The list of values of the flattened binary tree.
     /// </returns>
-    public List<T> FlattenIterative<T>(Node<T> rootNode){
-        throw new NotImplementedException();
-    }
+    public List<T> FlattenIterative<T>(Node<T> rootNode);
 }
