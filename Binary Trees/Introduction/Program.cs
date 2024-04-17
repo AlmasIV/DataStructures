@@ -22,11 +22,11 @@ class Program
         f.Right = g;
 
         Console.WriteLine("Iterative approach: ");
-        foreach(char ch in DepthFirstValues.FlattenIterative(a)){
+        foreach(char ch in (new DepthFirstValues()).FlattenIterative(a)){
             Console.WriteLine(ch);
         }
         Console.WriteLine("Recursive approach: ");
-        foreach(char ch in DepthFirstValues.FlattenRecursive(a)){
+        foreach(char ch in (new DepthFirstValues()).FlattenRecursive(a)){
             Console.WriteLine(ch);
         }
     }

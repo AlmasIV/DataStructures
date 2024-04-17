@@ -4,7 +4,7 @@ namespace Introduction.Tasks;
 ///     The class contains the methods that flattens the binary tree using depth first approach.
 /// </summary>
 public class DepthFirstValues : IFlattenIterative, IFlattenRecursive {
-    public static List<T> FlattenIterative<T>(Node<T> rootNode){
+    public List<T> FlattenIterative<T>(Node<T> rootNode){
         // Runtime O(N).
 
         if(rootNode is null){
@@ -32,7 +32,7 @@ public class DepthFirstValues : IFlattenIterative, IFlattenRecursive {
         return result;
     }
 
-    public static List<T> FlattenRecursive<T>(Node<T> rootNode){
+    public List<T> FlattenRecursive<T>(Node<T> rootNode){
         if(rootNode is null){
             return new List<T>();
         }

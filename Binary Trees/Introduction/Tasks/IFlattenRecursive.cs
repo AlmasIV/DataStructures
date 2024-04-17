@@ -16,7 +16,7 @@ public interface IFlattenRecursive {
     /// <returns>
     ///     The list of values of the flattened binary tree.
     /// </returns>
-    public static List<T> FlattenRecursive<T>(Node<T> rootNode){
+    public List<T> FlattenRecursive<T>(Node<T> rootNode){
         throw new NotImplementedException();
     }
 }
